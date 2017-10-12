@@ -25,31 +25,22 @@ sum         // equals 10 at this point
  For example, here how to use this type of loop to create a ladder image.
  */
 // Create canvas
-let canvas = Canvas(width: 300, height: 400)
+let canvas = Canvas(width: 300, height: 300)
 
-// Line width
-canvas.defaultLineWidth = 5
-
-// Draw the "rungs" of a ladder
-for y in stride(from: 0, through: 400, by: 50) {
-    
-    y
-    
-    // Draw each rung
-    canvas.drawLine(fromX: 100, fromY: y, toX: 200, toY: y)
-    
-    canvas
-    
+for x in stride (from: 25, through: 275, by: 50){
+    for y in stride (from: 275, through: 25, by: 50){
+        canvas.drawLine(fromX: x-10, fromY: y-10, toX: x+10, toY: y+10)
+        canvas.drawLine(fromX: x+10, fromY: y-10, toX: x-10, toY: y+10)
+    }
 }
+
+    
+
 /*:
  ### Counting backwards
  You can use a *for-in* loop with the *stride* function to count backwards as well.
  */
-// Countdown, then blast off
-for value in stride(from: 10, through: 0, by: -1) {
-    print(value)
-}
-print("Blast off!")
+
 //: **NOTE:** Output will show up in the Debug area.
 //:
 //: If you don't see this, press **Command-Shift-Y**.
