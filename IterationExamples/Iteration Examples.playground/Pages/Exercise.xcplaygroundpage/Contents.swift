@@ -26,37 +26,31 @@ import PlaygroundSupport
 //: ## Add your code below
 
 // Create canvas
-let canvas = Canvas(width: 300, height: 300)
+let canvas = Canvas(width: 500, height: 500)
 
-// Below this line, try combining a loop and a single statement to generate the goal
+//draw loops
 
-// Line width
-canvas.defaultLineWidth = 1
-
-// Draw the "rungs" of a ladder
-for x in stride (from: 25, through: 275, by: 50){
+//change the horizontal position
+for x in stride(from: 50, to: 500, by: 100){
     
-    print("X VALUE IS: \(x)")
-   
-    for y in stride (from: 275, through: 25, by: -50) {
+    //change the vertical position
+    for y in stride(from: 550, to: 0, by: -100){
         
-        print("y value is: \(y)")
-
-        let i = random(from: 1, toButNotIncluding: 3)
-        
-        if i == 1 {
-            //draw increasing line eg. /
-            canvas.drawLine(fromX: x-25, fromY: y-25, toX: x+25, toY: y+25)
-        } else {
-            //draw decreasing line eg. \
-            canvas.drawLine(fromX: x+25, fromY: y-25, toX: x-25, toY: y+25)
-        }
-        
-        
-       
-    }
-    
+        //change the size
+        for d in stride(from: 100, to: 20, by: -20){
+            
+//fill colour
+            
+     //choose the colour for this set up of circles
+        let hue = random(from: 0, toButNotIncluding: 361)
+        let saturation = random(from: 0, toButNotIncluding: 101)
+        let brightness = random(from: 0, toButNotIncluding: 101)
+            canvas.fillColor = Color(hue: hue, saturation: saturation, brightness: brightness, alpha: 100)
+        canvas.drawEllipse(centreX: x, centreY: y, width: d, height: d, borderWidth: 1)}
 }
+}
+
+
 /*:
  ## Template code
  The code below is necessary to see results in the Assistant Editor at right. Please do not remove.
