@@ -36,16 +36,14 @@ for x in stride(from: 50, to: 500, by: 100){
     //change the vertical position
     for y in stride(from: 550, to: 0, by: -100){
         
-        //change the size
+        //change the size and saturation
         for d in stride(from: 100, to: 20, by: -20){
             
 //fill colour
             
      //choose the colour for this set up of circles
         let hue = random(from: 0, toButNotIncluding: 361)
-        let saturation = random(from: 0, toButNotIncluding: 101)
-        let brightness = random(from: 0, toButNotIncluding: 101)
-            canvas.fillColor = Color(hue: hue, saturation: saturation, brightness: brightness, alpha: 100)
+            canvas.fillColor = Color(hue: hue, saturation: d-50, brightness: 90, alpha: 100)
         canvas.drawEllipse(centreX: x, centreY: y, width: d, height: d, borderWidth: 1)}
 }
 }
